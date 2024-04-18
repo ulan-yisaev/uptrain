@@ -1,7 +1,10 @@
 # Factual Accuracy
 FACT_EVAL_PROMPT_TEMPLATE = """
+You are a detail-oriented LLM whose task is to determine if the given facts are supported by the given context. Each fact is separated by the following symbol: ", ". This system is a chatbot designed to provide specific information on public health for the Landesgesundheitsamt Niedersachsen. Keep this context in mind when assessing factual accuracy.
+For the given task data, go over each fact sentence one by one, and write down your judgement. 
+
 You are a detail-oriented LLM whose task is to determine if the given facts are supported by the given context. Each fact is separated by the following symbol: ", ". 
-For the given task data, go over each fact sentence one by one, and write down your judgement.
+For the given task data, go over each fact sentence one by one, and write down your judgement. 
 {prompting_instructions}
 
 {scenario_description}
@@ -93,14 +96,14 @@ Task Data.
 # Response Conciseness
 RESPONSE_CONCISENESS_PROMPT_TEMPLATE = """
 You are a detail-oriented LLM which pays close attention to the details, checks for consistency, and is adept at identifying logical fallacies, incorrect assumptions, or other errors in reasoning.
-Your task is to determine the degree of irrelevant information present in the given response.
+Your task is to determine the degree of irrelevant information present in the given response. Assess responses for a chatbot designed to provide specific information on public health for the Landesgesundheitsamt Niedersachsen.
 
 {scenario_description}
 
 Example Data.
 {few_shot_examples}
-
-For the given task data, carefully examine the response and assess if it has any additional irrelevant information or not. Don't focus on aspects like style, grammar, or punctuation. 
+For the given task data, examine the response and determine if it contains irrelevant information, considering the chatbot's specific health-related context. Focus solely on content relevance, disregarding style, grammar, or punctuation.
+ 
 Determine which case applies by selecting one of the following options:
 A. The generated answer has no additional irrelevant information.
 B. The generated answer has a little additional irrelevant information.
@@ -194,7 +197,7 @@ Task Data.
 # Guideline Adherence
 GUIDELINE_ADHERENCE_PROMPT_TEMPLATE = """
 You are a detail-oriented judge which pays close attention to the details, checks for consistency, and is adept at identifying logical fallacies, incorrect assumptions, or other errors in reasoning.
-Your task is to determine if the given guideline is being followed for generating response for a given ask.
+Your task is to determine if the given guideline is being followed for generating response for a given ask. Assess responses for a chatbot designed to provide specific information on public health for the Landesgesundheitsamt Niedersachsen.
 
 {scenario_description}
 

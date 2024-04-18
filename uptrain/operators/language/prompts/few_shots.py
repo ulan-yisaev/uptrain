@@ -128,20 +128,36 @@ RESPONSE_CONCISENESS_FEW_SHOT__CLASSIFY = """
 """
 
 RESPONSE_CONCISENESS_FEW_SHOT__COT = """
-[Question]: Who is Lionel Messi?
-[Response]: Lionel Andrés Messi (born 24 June 1987), also known as Leo Messi, is an Argentine professional footballer who plays as a forward for and captains both Major League Soccer club Inter Miami and the Argentina national team. Widely regarded as one of the greatest players of all time, Messi has won a record seven Ballon d'Or awards] and a record six European Golden Shoes, and in 2020 he was named to the Ballon d'Or Dream Team. Until leaving the club in 2021, he had spent his entire professional career with Barcelona, where he won a club-record 34 trophies, including ten La Liga titles, seven Copa del Rey titles and the UEFA Champions League four times.
+[Question]: What is the recommended vaccine for COVID-19?
+[Response]: The recommended vaccine for COVID-19 in Germany is the Pfizer-BioNTech vaccine. It has been widely administered and is approved for use from age 12 and above. It has shown high efficacy in preventing COVID-19 infections and reducing severity of the disease. This vaccine is part of a large vaccination campaign that includes Moderna and AstraZeneca vaccines.
 [Output]:
 {
-    "Reasoning": "While the given response provides information about the birth data, nationality and occupation of Lionel Messi, it includes some irrelevant details about Messi's career such as association to multiple clubs and trophies won.",
+    "Reasoning": "The response provides specific and relevant information about the recommended COVID-19 vaccine. It includes additional but relevant details about other vaccines, which is pertinent to the public health context.",
+    "Choice": "A"
+}
+
+[Question]: What are the side effects of the Pfizer vaccine?
+[Response]: Common side effects of the Pfizer vaccine include pain at the injection site, tiredness, headache, muscle pain, chills, joint pain, and fever. These side effects generally last a few days. It's similar to other vaccines like Moderna, which also have common side effects including pain at the injection site and headache.
+[Output]:
+{
+    "Reasoning": "The response adequately addresses the query about side effects of the Pfizer vaccine and includes a comparison to Moderna, which provides useful context without deviating from the health-related topic.",
     "Choice": "B"
 }
 
-[Question]: Who is Lionel Messi?
-[Response]: Lionel Andrés Messi (born 24 June 1987), also known as Leo Messi, is an Argentine professional footballer who plays as a forward for and captains both Major League Soccer club Inter Miami and the Argentina national team. Widely regarded as one of the greatest players of all time, Messi has won a record seven Ballon d'Or awards] and a record six European Golden Shoes, and in 2020 he was named to the Ballon d'Or Dream Team. Until leaving the club in 2021, he had spent his entire professional career with Barcelona, where he won a club-record 34 trophies, including ten La Liga titles, seven Copa del Rey titles and the UEFA Champions League four times. During his time with Barcelona, Barcelona featured star players like Neymar, Andres Iniesta and was managed by Luis Enrique.
+[Question]: Wer ist Cristiano Ronaldo?
+[Response]: Cristiano Ronaldo ist ein portugiesischer Fußballspieler, der als einer der besten Spieler aller Zeiten gilt. Er hat zahlreiche Auszeichnungen erhalten und für mehrere große Clubs gespielt.
 [Output]:
 {
-    "Reasoning": "While the given response provides information about the birth data, nationality and occupation of Lionel Messi, it includes a lot of irrelevant inforamtion such as details about Messi's career and Barcelona club.",
+    "Reasoning": "This response is entirely irrelevant as the chatbot is designed to answer health-related questions only. The information about Cristiano Ronaldo does not pertain to public health or any medical inquiries.",
     "Choice": "C"
+}
+
+[Question]: How can I protect myself from Legionella?
+[Response]: To protect yourself from Legionella, it is important to ensure that water systems in residential and commercial buildings are properly maintained. This includes setting water heaters to the correct temperature, regularly flushing out water systems, and avoiding the use of outdated water systems that might harbor the bacteria.
+[Output]:
+{
+    "Reasoning": "The response provides direct and relevant information about preventing Legionella infection, focusing precisely on measures related to water system maintenance without any irrelevant details.",
+    "Choice": "A"
 }
 """
 
@@ -242,12 +258,20 @@ VALID_RESPONSE_FEW_SHOT__CLASSIFY = """
 """
 
 VALID_RESPONSE_FEW_SHOT__COT = """
+[Question]: What are the current guidelines for COVID-19 vaccinations in Germany?
+[Response]: Current guidelines in Germany recommend that all individuals aged 12 and over should receive the COVID-19 vaccine. Booster doses are advised for those aged 18 and above, especially for the elderly and people with underlying health conditions to enhance their protection against the virus.
+[Output]:
+{
+    "Reasoning": "The response provides comprehensive and relevant information directly answering the question about current COVID-19 vaccination guidelines in Germany. Therefore, the response does contain information relevant to the question.",
+    "Choice": "A"
+}
+
 [Question]: Who is the director of the 2003 film which has scenes in it filmed at the Quality Cafe in Los Angeles?
 [Response]: Todd Phillips
 [Output]:
 {
-    "Reasoning": "The response 'Todd Phillips' provides the name of a person. Therefore, the response does contain information relevant to the question.",
-    "Choice": "A"
+    "Reasoning": "This response is entirely irrelevant to the health-related focus of the chatbot. The question about a film director does not pertain to public health or medical information, which is the chatbot's designed purpose.",
+    "Choice": "C"
 }
 """
 
@@ -264,12 +288,12 @@ GUIDELINE_ADHERENCE_FEW_SHOT__CLASSIFY = """
 """
 
 GUIDELINE_ADHERENCE_FEW_SHOT__COT = """
-[Question]: Which is the most popular global sport?
-[Guideline]: The response should not contain any numbers or statistics.
-[Response]: Football is the most popular sport with around 4 billion followers worldwide
+[Question]: Who is Cristiano Ronaldo?
+[Guideline]: The response must strictly adhere to the provided context and not introduce external information. If the necessary information is absent from the context, respond with: 'Ihre Anfrage kann nicht mit den bereitgestellten Daten beantwortet werden. Bitte erläutern Sie Ihre Anfrage genauer oder geben Sie weitere Informationen an, falls notwendig.' Should the question fall outside the health-related jurisdiction of the Landesgesundheitsamt Niedersachsen, state that the query is beyond the health-related scope and cannot be answered.
+[Response]: Cristiano Ronaldo is a professional footballer from Portugal.
 [Output]:
 {
-    "Reasoning": "The response contains a number, '4 billion', which is a statistic. Therefore, the response does not adhere to the guideline.",
+    "Reasoning": "The given LLM response strictly violates the guideline because it introduces external information not present in the context. The context does not mention Cristiano Ronaldo. Also, the response should be related to health-related queries only. The response is not relevant to the context and the chatbot's designated purpose.",
     "Choice": "B"
 }
 """
