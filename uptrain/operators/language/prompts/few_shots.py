@@ -258,6 +258,14 @@ VALID_RESPONSE_FEW_SHOT__CLASSIFY = """
 """
 
 VALID_RESPONSE_FEW_SHOT__COT = """
+[Question]: Woher kommt Schimmel in der Wohnung?
+[Response]: Ihre Anfrage kann nicht mit den bereitgestellten Daten beantwortet werden. Bitte erläutern Sie Ihre Anfrage genauer oder geben Sie weitere Informationen an, falls notwendig.
+[Output]:
+{
+    "Reasoning": "The response correctly indicates that the provided documents do not contain information to answer the question about the source of mold in an apartment. It correctly asks for further clarification or information, adhering to the protocol for cases where the given context does not contain the answer.",
+    "Choice": "A"
+}
+
 [Question]: What are the current guidelines for COVID-19 vaccinations in Germany?
 [Response]: Current guidelines in Germany recommend that all individuals aged 12 and over should receive the COVID-19 vaccine. Booster doses are advised for those aged 18 and above, especially for the elderly and people with underlying health conditions to enhance their protection against the virus.
 [Output]:
